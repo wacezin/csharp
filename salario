@@ -1,0 +1,62 @@
+using System.Globalization;
+
+
+namespace Atividade9
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        { 
+
+            Salario salario1 = new Salario();
+            Salario salario2 = new Salario();
+
+            Console.WriteLine("Dados do primeiro funcionário: ");
+            Console.WriteLine("Nome: ");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Salário: ");
+            salario1.pagode1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("Dados do segundo funcionário: ");
+            Console.WriteLine("Nome: ");
+            string nome2 = Console.ReadLine();
+            Console.WriteLine("Salário: ");
+            salario2.pagode2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double media1 = salario1.media();
+            double media2 = salario2.media();
+
+            if (media1 > media2)
+            {
+                Console.WriteLine($"Salário médio: {media1.ToString("F2", CultureInfo.InvariantCulture)}");
+            }
+            else
+            {
+                Console.WriteLine($"Salário médio: {media2.ToString("F2", CultureInfo.InvariantCulture)}");
+            }
+        }
+    }
+}
+
+
+
+// CLASSE //
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Atividade9
+{
+    internal class Salario
+    {
+        public double pagode1;
+        public double pagode2;
+
+        public double media()
+        {
+            return (pagode1 + pagode2) / 2;   
+        }
+    }
+}
